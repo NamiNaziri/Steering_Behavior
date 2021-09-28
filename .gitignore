@@ -70,5 +70,17 @@ Saved/*
 Intermediate/*
 Plugins/*/Intermediate/*
 
+Binaries
+Intermediate
+
+
 # Cache files for the editor to use
 DerivedDataCache/*
+SteeringProject/Content/Collections
+SteeringProject/Content/AssetPacks
+SteeringProject/Content/Developers
+SteeringProject/Content/Geometry
+SteeringProject/Content/TopDownCPP
+SteeringProject/Content/VehicleAdv
+
+
