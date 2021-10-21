@@ -19,15 +19,26 @@ public class Kinematics : MonoBehaviour
 
     public KinematicProperties properties;
 
+    [SerializeField]private bool automaticSteeringGathering = false;
+
     // Start is called before the first frame update
     public void Start()
     {
         properties.position = transform.position;
+
+        if (automaticSteeringGathering)
+        {
+            steeringBehaviors = GetComponents<BaseSteeringBehavior>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        properties.position = transform.position;
+
         for (int i = 0; i < steeringBehaviors.Length; i++)
         {
             if (steeringBehaviors[i] == null || !steeringBehaviors[i].isActiveAndEnabled)
@@ -59,9 +70,7 @@ public class Kinematics : MonoBehaviour
             properties.rotation += output.angular * Time.deltaTime;
 
             properties.position = transform.position;
-
-            //steeringBehaviors[i].UpdateCharacterKinematics(properties);
-
+            
             
             //Return the object to the middle of the screen if it gets too far!
             /*if (transform.position.magnitude > 40)

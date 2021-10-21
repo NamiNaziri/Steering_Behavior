@@ -11,12 +11,8 @@ public class pursue : SeekAndFlee
 
     public override SteeringOutput GetSteering()
     {
-        
-        
         if (target)
         {
-
-
 
             float prediction = 0;
 
@@ -47,10 +43,7 @@ public class pursue : SeekAndFlee
             base.effectiveTarget.position = base.target.transform.position;
             base.effectiveTarget.position += effectiveTarget.velocity * prediction;
             
-            print("velocity111: " + target.GetComponent<Kinematics>().properties.velocity);
-            print("velocity: " + effectiveTarget.velocity);
-            print("Effective: " + effectiveTarget.position);
-            print("target: " + base.target.transform.position);
+            
 
 
             Debug.DrawLine(character.transform.position, base.effectiveTarget.position,Color.red);

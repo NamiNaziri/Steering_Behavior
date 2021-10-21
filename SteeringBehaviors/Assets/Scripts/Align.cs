@@ -20,8 +20,8 @@ public class Align : BaseSteeringBehavior
         steering.linear = Vector3.zero;
         steering.angular = 0;
 
-        if (target)
-        {
+        //if (target)
+        //{
 
            
             float a = characterKinematics.orientation;
@@ -63,7 +63,7 @@ public class Align : BaseSteeringBehavior
                 steering.angular /= angularAcceleration;
                 steering.angular *= maxAngularAcceleration;
             }
-        }
+        //}
 
         return steering;
     }

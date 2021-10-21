@@ -12,9 +12,8 @@ public class Agent : BaseSteeringBehavior
 
     private bool flipFlop = true;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()  
     {
-
         CurrentAgentBehavoir = pursueBehavior;
         
     }
@@ -24,7 +23,7 @@ public class Agent : BaseSteeringBehavior
         return CurrentAgentBehavoir.GetSteering();
     }
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         
         if (flipFlop && CurrentAgentBehavoir.IsReached())

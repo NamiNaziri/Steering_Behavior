@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+
 using UnityEngine;
 
 public class SeekAndFlee : BaseSteeringBehavior
@@ -18,8 +19,9 @@ public class SeekAndFlee : BaseSteeringBehavior
 
         if (target)
         {
-            
 
+
+            UnityEngine.Debug.DrawLine(character.transform.position, effectiveTarget.position, Color.yellow);
 
             steering.linear = effectiveTarget.position - character.transform.position;
             if (flee)

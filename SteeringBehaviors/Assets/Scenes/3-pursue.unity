@@ -172,8 +172,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: -20.7
+  far clip plane: 1002.07
   field of view: 60
   orthographic: 1
   orthographic size: 20
@@ -199,8 +199,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89893548}
-  m_LocalRotation: {x: -0, y: -0.6246976, z: -0, w: 0.7808668}
-  m_LocalPosition: {x: 11.268324, y: 0, z: -4.585291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0000932, y: 0, z: -13.99998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 185136197}
@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 185136194}
   - component: {fileID: 185136193}
   - component: {fileID: 185136192}
+  - component: {fileID: 185136198}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -327,7 +328,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185136191}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b7582034f7f39a4db4f93830eb552ee, type: 3}
   m_Name: 
@@ -349,8 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9a5b5d842171e499bccb682ae3d540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steeringBehaviors:
-  - {fileID: 185136192}
+  steeringBehaviors: []
+  automaticSteeringGathering: 1
 --- !u!65 &185136194
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -420,15 +421,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185136191}
-  m_LocalRotation: {x: 0, y: 0.6246976, z: 0, w: 0.7808668}
-  m_LocalPosition: {x: 2, y: 0, z: 2}
+  m_LocalRotation: {x: 0, y: 0.6984152, z: 0, w: 0.7156929}
+  m_LocalPosition: {x: 22, y: 0, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 875408189}
   - {fileID: 89893551}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 77.32, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 88.6, z: 0}
+--- !u!114 &185136198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185136191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b560ca01fc3153c4a9b38edcaab984c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  ignoreRotation: 0
+  maxReachDistance: 5
+  maxAngularAcceleration: 150
+  maxRotation: 100
+  targetRadius: 40
+  slowRadius: 70
+  timeToTarget: 0.1
+  wanderOffset: 7.3
+  wanderRadius: 15
+  wanderRate: 50
+  wanderOrientation: 0
+  maxAcceleration: 1
 --- !u!1 &646786815
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steeringBehaviors:
   - {fileID: 646786817}
+  automaticSteeringGathering: 0
 --- !u!65 &646786819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -870,3 +897,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steeringBehaviors: []
+  automaticSteeringGathering: 0

@@ -28,13 +28,22 @@ public class BaseSteeringBehavior : MonoBehaviour
     {
         character = gameObject;
         characterKinematics = character.GetComponent<Kinematics>().properties;
-        effectiveTarget = target.GetComponent<Kinematics>().properties;
+        if (target)
+        {
+            //target = new GameObject();
+            //target.AddComponent<Kinematics>();
+            effectiveTarget = target.GetComponent<Kinematics>().properties;
+        }
+        
     }
 
     public virtual void Update()
     {
         characterKinematics = character.GetComponent<Kinematics>().properties;
-        effectiveTarget = target.GetComponent<Kinematics>().properties;
+        if (target)
+        {
+            effectiveTarget = target.GetComponent<Kinematics>().properties;
+        }
     }
 
     public virtual SteeringOutput GetSteering()
