@@ -19,6 +19,8 @@ public class Kinematics : MonoBehaviour
 
     public KinematicProperties properties;
 
+    public float maxVelocity = 50;
+
     [SerializeField]private bool automaticSteeringGathering = false;
 
     // Start is called before the first frame update
@@ -67,6 +69,10 @@ public class Kinematics : MonoBehaviour
             SteeringOutput output = steeringBehaviors[i].GetSteering();
 
             properties.velocity += output.linear * Time.deltaTime;
+
+            if (properties.velocity.magnitude > maxVelocity)
+                properties.velocity = properties.velocity.normalized * maxVelocity;
+
             properties.rotation += output.angular * Time.deltaTime;
 
             properties.position = transform.position;
